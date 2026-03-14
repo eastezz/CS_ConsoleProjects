@@ -416,3 +416,9 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# University Programming
+*.class
+build/
+target/
+.vscode/

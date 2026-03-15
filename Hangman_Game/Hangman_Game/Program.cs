@@ -10,12 +10,12 @@ class HangmanGame
         int guesses = 6;
         char letter;
         bool isCorrect;
-        for (int i = 0; i < secretWord.Length; i++)
+        foreach (char i in secretWord)
         {
             hiddenLetters.Add('_');
         }
 
-        while (true)
+        while (guesses > 0)
         {
             isCorrect = false;
             Console.WriteLine("Current progress:");
@@ -31,7 +31,7 @@ class HangmanGame
 
             for (int i = 0; i < secretWord.Length; i++)
             {
-                if (letter.Equals(secretWord[i]) && !hiddenLetters.Contains(letter))
+                if (letter.Equals(secretWord[i]))
                 {
                     hiddenLetters[i] = secretWord[i];
                     isCorrect = true;
@@ -40,18 +40,13 @@ class HangmanGame
 
             if (!isCorrect) guesses--;
 
-            if (guesses == 0)
-            {
-                Console.WriteLine($"Game over! The word was {secretWord}");
-                break;
-            }
-
             if (!hiddenLetters.Contains('_'))
             {
                 Console.WriteLine($"Congratulations! You've guessed the word: {secretWord}");
-                break;
+                return;
             }
         }
+        Console.WriteLine($"Game over! The word was {secretWord}");
     }
 }
 

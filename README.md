@@ -23,6 +23,24 @@ A simple word-guessing game played in the console.
 
 ---
 
+### ❌⭕ Tic-Tac-Toe (Console Game)
+
+A classic two-player Tic-Tac-Toe game played in the console.
+
+**Features:**
+
+* 3×3 game board
+* Two-player mode (X vs O)
+* Input validation
+* Win detection (rows, columns, diagonals)
+* Draw detection
+* Clean board display after each move
+
+🔗 Project link:
+[TicTacToe](Tic_Tac_Toe_Game)
+
+---
+
 ## 🛠️ Technologies Used
 
 * C#
@@ -42,6 +60,3 @@ A simple word-guessing game played in the console.
 git clone https://github.com/YourUsername/RepositoryName.git
 ```
 
----
-
-⭐ Feel free to explore the projects and provide feedback!

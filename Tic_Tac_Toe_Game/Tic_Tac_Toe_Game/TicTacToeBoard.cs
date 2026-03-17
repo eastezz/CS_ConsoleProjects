@@ -8,6 +8,7 @@ public class TicTacToeBoard
 		this.board = new List<char>();
 	}
 
+	// Fills our future board with an '_' symbols
 	public void FillTheBoard()
 	{
 		for(int i = 0; i < 9; i++)
@@ -16,6 +17,7 @@ public class TicTacToeBoard
 		}
 	}
 
+	// Returns the board as an List value
 	public List<char> GetBoard()
 	{
 		return this.board;

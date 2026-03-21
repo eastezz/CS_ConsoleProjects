@@ -10,16 +10,18 @@ public class SlapJackConstructor
         this.deck = new List<string>();
     }
 
-    public List CreateDeck()
+    public List<string> CreateDeck()
     {
-        for (int i = 0; i < 5; i++)
+        List<string> deck = new List<string>();
+        for (int i = 0; i < 4; i++)
         {
             foreach (var name in Enum.GetNames(typeof(Cards)))
             {
                 deck.Add(name);
             }
         }
-        return deck.Shuffle();
+        this.deck.AddRange(deck.Shuffle());
+        return this.deck;
 
     }
 }

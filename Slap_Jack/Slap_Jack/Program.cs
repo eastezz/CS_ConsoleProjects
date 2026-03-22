@@ -2,7 +2,7 @@
 {
     static void Main()
     {
-        SlapJackGame game = new SlapJackGame();
+        Game game = new Game();
         game.GameStart();
     }
 }

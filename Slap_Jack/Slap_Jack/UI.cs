@@ -45,4 +45,18 @@ public class UI
             Console.WriteLine("draw");
         }
     }
+
+	// Returns player`s input
+	public char GetInput()
+	{
+		string? input = Console.ReadLine();
+
+        // Avoids null input exceptions 
+        if (!string.IsNullOrEmpty(input))
+		{
+            char playerIput = input[0];
+			return playerIput;
+		}
+		return ' ';
+	}
 }

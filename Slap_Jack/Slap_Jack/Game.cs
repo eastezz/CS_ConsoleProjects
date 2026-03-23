@@ -91,7 +91,7 @@ public class Game
 	public void GameStart()
 	{
 		InitGame();
-		char playerInput = ' ';
+
 		while(!IsGameOver())
 		{
 			consoleUI.LogCardCount();
@@ -99,13 +99,7 @@ public class Game
 
 			bool isJack = board.GetBoardCardStack().Last() is Cards.Jack;
 
-			string? input = Console.ReadLine();
-			
-			// Avoids null input exceptions 
-			if(!string.IsNullOrEmpty(input))
-			{
-				playerInput = input[0];
-			}
+			char playerInput = consoleUI.GetInput();
 			
 			Player playerWhoSlaps;
 			Player playerWhoNotSlaps;

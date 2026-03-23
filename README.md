@@ -41,6 +41,25 @@ A classic two-player Tic-Tac-Toe game played in the console.
 
 ---
 
+### 🃏 Slap Jack (Console Card Game)
+
+A fast-paced reaction-based card game played in the console.
+Players must quickly react and "slap" when a Jack appears.
+
+**Features:**
+
+* Simulated card deck
+* Turn-based gameplay
+* Real-time key press detection
+* Reaction-based mechanics
+* Score tracking
+* Simple console interface
+
+🔗 Project link:
+[SlapJack](Slap_Jack)
+
+---
+
 ## 🛠️ Technologies Used
 
 * C#

@@ -30,7 +30,7 @@ public class Game
 
 		// Each time switches to simulate the dealing of cards 
 		bool orderSwitcher = true;
-		foreach(Cards card in deck.GetDeck())
+		foreach(Card card in deck.GetDeck())
 		{
 			if (orderSwitcher)
 			{
@@ -63,7 +63,7 @@ public class Game
 		playerTurn = !playerTurn;
 
 		//Saves the card played and removes it from player stack
-		Cards cardPlayed = currentPlayer.PlayTopCard();
+		Card cardPlayed = currentPlayer.PlayTopCard();
 
         // Adds the card to the board
         board.AddCard(cardPlayed);
@@ -95,7 +95,7 @@ public class Game
 			PlayNextCard();
 			var lastCard = board.GetBoardCardStack().Last();
 
-			bool isJack = lastCard is Cards.Jack;
+			bool isJack = lastCard.rank is Rank.Jack;
 
 			char playerInput = consoleUI.GetInput();
 			
@@ -103,12 +103,12 @@ public class Game
 			Player playerWhoNotSlaps;
 
 			// Defines who slaps
-			if(playerInput.Equals(playerOne.GetPlayerKey()))
+			if(playerInput.Equals(playerOne.keyboardKey))
 			{
 				playerWhoSlaps = playerOne;
 				playerWhoNotSlaps = playerTwo;
 			}
-			else if(playerInput.Equals(playerTwo.GetPlayerKey()))
+			else if(playerInput.Equals(playerTwo.keyboardKey))
 			{
 				playerWhoSlaps = playerTwo;
 				playerWhoNotSlaps = playerOne;

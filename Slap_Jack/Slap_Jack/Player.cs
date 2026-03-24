@@ -4,32 +4,32 @@ using System.Collections.Generic;
 // Saves player cards state during the game
 public class Player
 {
-	private List<Cards> personalStack;
-	private char keyboardKey;  
+	private List<Card> personalStack;
+	public char keyboardKey { get; }
 	public Player(char keyboardKey)
 	{
-		this.personalStack = new List<Cards>();
+		this.personalStack = new List<Card>();
 		this.keyboardKey = keyboardKey;
 	}
 
 	// Returns the List of the player cards 
-	public IReadOnlyList<Cards> GetPersonalStack() => personalStack;
+	public IReadOnlyList<Card> GetPersonalStack() => personalStack;
 
 
 	// Returns the key, binded to the player 
 	public char GetPlayerKey() => keyboardKey;
 
 	// Adds a new card to the player`s stack
-	public void AddCard(Cards card) => personalStack.Add(card);
+	public void AddCard(Card card) => personalStack.Add(card);
 
 	// Removes the card from the player`s stack
-	public void RemoveCard(Cards card) => personalStack.Remove(card);
+	public void RemoveCard(Card card) => personalStack.Remove(card);
 
 	// Adds a range of cards to the playes`s stack
-	public void AddRangeOffCards(List<Cards> cards) => personalStack.AddRange(cards);
+	public void AddRangeOffCards(List<Card> cards) => personalStack.AddRange(cards);
 
 	// Saves the card played, removes and returns it
-	public Cards PlayTopCard()
+	public Card PlayTopCard()
 	{
 		var card = personalStack[0];
 		personalStack.RemoveAt(0);

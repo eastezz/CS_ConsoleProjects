@@ -4,26 +4,28 @@ using System.Collections.Generic;
 // Manages operations on the start deck
 public class Deck
 {
-    private List<Cards> deck;
+    private List<Card> deck;
 
     public Deck()
     {
-        this.deck = new List<Cards>();
+        this.deck = new List<Card>();
     }
 
     // Creates a new deck of 52 cards and shuffles it
     public void CreateDeck()
     {
-        List<Cards> deck = new List<Cards>();
-        for (int i = 0; i < 4; i++)
+        foreach(Suit suit in Enum.GetValues(typeof(Suit)))
         {
-            deck.AddRange(Enum.GetValues(typeof(Cards)).Cast<Cards>());
+            foreach (Rank rank in Enum.GetValues(typeof(Rank)))
+            {
+                deck.Add(new Card(rank, suit));
+            }
         }
-        this.deck = deck.Shuffle().ToList();
+        deck = deck.Shuffle().ToList();
     }
 
     // Returns the final deck
-    public IReadOnlyList<Cards> GetDeck()
+    public IReadOnlyList<Card> GetDeck()
     {
         return deck;
     }

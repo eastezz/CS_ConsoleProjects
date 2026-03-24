@@ -24,9 +24,9 @@ public class UI
     }
 
 	// Outputs the next played card
-	public void LogNextCard(Cards card)
+	public void LogNextCard(Card card)
 	{
-		Console.WriteLine($"Card played: {card.ToString()}");
+		Console.WriteLine($"Card played: {card.rank.ToString()} of {card.suit.ToString()}");
 	}
 
 	// Outputs the result of the game 

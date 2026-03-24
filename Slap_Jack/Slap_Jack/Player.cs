@@ -13,14 +13,28 @@ public class Player
 	}
 
 	// Returns the List of the player cards 
-	public List<Cards> GetPersonalStack()
-	{
-		return this.personalStack;
-	}
+	public IReadOnlyList<Cards> GetPersonalStack() => personalStack;
+
 
 	// Returns the key, binded to the player 
-	public char GetPlayerKey()
+	public char GetPlayerKey() => keyboardKey;
+
+	// Adds a new card to the player`s stack
+	public void AddCard(Cards card) => personalStack.Add(card);
+
+	// Removes the card from the player`s stack
+	public void RemoveCard(Cards card) => personalStack.Remove(card);
+
+	// Adds a range of cards to the playes`s stack
+	public void AddRangeOffCards(List<Cards> cards) => personalStack.AddRange(cards);
+
+	// Saves the card played, removes and returns it
+	public Cards PlayTopCard()
 	{
-		return this.keyboardKey;
+		var card = personalStack[0];
+		personalStack.RemoveAt(0);
+		return card;
 	}
+
+
 }

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 
 // Manages operations on the start deck
-public class DeckManager
+public class Deck
 {
     private List<Cards> deck;
 
-    public DeckManager()
+    public Deck()
     {
         this.deck = new List<Cards>();
     }
@@ -19,11 +19,11 @@ public class DeckManager
         {
             deck.AddRange(Enum.GetValues(typeof(Cards)).Cast<Cards>());
         }
-        this.deck.AddRange(deck.Shuffle());
+        this.deck = deck.Shuffle().ToList();
     }
 
     // Returns the final deck
-    public List<Cards> GetDeck()
+    public IReadOnlyList<Cards> GetDeck()
     {
         return deck;
     }

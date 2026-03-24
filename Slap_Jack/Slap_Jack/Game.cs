@@ -6,7 +6,8 @@ using System.IO;
 // Game logic responsibility
 public class Game
 {
-	private DeckManager deck;
+	private const int maxCards = 52;
+	private Deck deck;
 	private Player playerOne;
 	private Player playerTwo;
 	private Board board;
@@ -15,7 +16,7 @@ public class Game
 
 	public Game()
 	{
-		this.deck = new DeckManager();
+		this.deck = new Deck();
 		this.playerOne = new Player('a');
 		this.playerTwo = new Player('l');
 		this.board = new Board();
@@ -25,20 +26,19 @@ public class Game
 	// Creates a new deck using class DeckManager and divides equally between two players
     private void InitGame()
 	{
-		this.deck.CreateDeck();
-		List<Cards> deck = this.deck.GetDeck();
+		deck.CreateDeck();
 
 		// Each time switches to simulate the dealing of cards 
 		bool orderSwitcher = true;
-		foreach(Cards card in deck)
+		foreach(Cards card in deck.GetDeck())
 		{
 			if (orderSwitcher)
 			{
-				playerOne.GetPersonalStack().Add(card);
+				playerOne.AddCard(card);
 			}
 			else
 			{
-				playerTwo.GetPersonalStack().Add(card);
+				playerTwo.AddCard(card);
 			}
 			orderSwitcher = !orderSwitcher;
 		}
@@ -52,7 +52,7 @@ public class Game
 		Player currentPlayer;
 
 		// Check the rules
-		if(playerTurn && IsNotEmpty(playerOne) || !IsNotEmpty(playerTwo))
+		if((playerTurn && IsNotEmpty(playerOne)) || !IsNotEmpty(playerTwo))
 		{
 			currentPlayer = playerOne;
 		}
@@ -62,14 +62,11 @@ public class Game
 		}
 		playerTurn = !playerTurn;
 
-		//Saves the card played  
-		Cards cardPlayed = currentPlayer.GetPersonalStack().First();
-
-        // Removes it from the current player deck 
-        currentPlayer.GetPersonalStack().RemoveAt(0);
+		//Saves the card played and removes it from player stack
+		Cards cardPlayed = currentPlayer.PlayTopCard();
 
         // Adds the card to the board
-        board.GetBoardCardStack().Add(cardPlayed);
+        board.AddCard(cardPlayed);
 
 		//Outputs the card played
 		consoleUI.LogNextCard(cardPlayed);
@@ -84,7 +81,7 @@ public class Game
     // Checks whether the endgame statements compiled
     private bool IsGameOver()
 	{
-		return (!playerOne.GetPersonalStack().Any() && !playerTwo.GetPersonalStack().Any()) || playerOne.GetPersonalStack().Count == 52 || playerTwo.GetPersonalStack().Count == 52;
+		return (!playerOne.GetPersonalStack().Any() && !playerTwo.GetPersonalStack().Any()) || playerOne.GetPersonalStack().Count == maxCards || playerTwo.GetPersonalStack().Count == maxCards;
 
     }
 
@@ -96,8 +93,9 @@ public class Game
 		{
 			consoleUI.LogCardCount();
 			PlayNextCard();
+			var lastCard = board.GetBoardCardStack().Last();
 
-			bool isJack = board.GetBoardCardStack().Last() is Cards.Jack;
+			bool isJack = lastCard is Cards.Jack;
 
 			char playerInput = consoleUI.GetInput();
 			
@@ -124,14 +122,14 @@ public class Game
 
 			if(isJack)
 			{
-				playerWhoSlaps.GetPersonalStack().AddRange(board.GetBoardCardStack());
-				board.GetBoardCardStack().Clear();
+				playerWhoSlaps.AddRangeOffCards(board.CopyBoard());
+				board.ClearBoard();
 			}
 			// Gives the card to the another player if wrong slaps
 			else if(!isJack && IsNotEmpty(playerWhoSlaps))
 			{
-				playerWhoNotSlaps.GetPersonalStack().Add(playerWhoSlaps.GetPersonalStack().Last());
-				playerWhoSlaps.GetPersonalStack().Remove(playerWhoSlaps.GetPersonalStack().Last());
+				playerWhoNotSlaps.AddCard(playerWhoSlaps.GetPersonalStack().Last());
+				playerWhoSlaps.RemoveCard(playerWhoSlaps.GetPersonalStack().Last());
 			}
 			// Loose if wrong slaps and the player stack was empty
 			else

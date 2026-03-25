@@ -21,9 +21,9 @@ public class Board
 	    // .. slow method
 	public List<Card> CopyBoard()
 	{
-		var json = JsonSerializer.Serialize(cardStack);
-		var deepcopy = JsonSerializer.Deserialize<List<Card>>(json);
-		return deepcopy;
+		//var json = JsonSerializer.Serialize(cardStack);
+		//var deepcopy = JsonSerializer.Deserialize<List<Card>>(json);
+		return new List<Card>(cardStack);
 	}
 
 	// clears the board

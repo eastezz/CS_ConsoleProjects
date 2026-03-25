@@ -5,18 +5,9 @@ using System.Reflection;
 // Input/Output responsibility
 public class UI
 {
-	private Board board;
-	private Player playerOne;
-	private Player playerTwo;
-	public UI(Board board, Player playerOne, Player playerTwo)
-	{
-		this.board = board;
-		this.playerOne = playerOne;
-		this.playerTwo = playerTwo;
-	}
 
 	// Outputs info of the current game state
-	public void LogCardCount()
+	public void LogCardCount(Board board, Player playerOne, Player playerTwo)
 	{
 		Console.WriteLine($"Board: {board.GetBoardCardStack().Count} cards");
 		Console.WriteLine($"Player One: {playerOne.GetPersonalStack().Count} cards");
@@ -30,13 +21,13 @@ public class UI
 	}
 
 	// Outputs the result of the game 
-	public void LogWinner(Player winner)
+	public void LogWinner(bool? whoWin)
 	{
-        if (winner == playerOne)
+        if (whoWin == true)
         {
             Console.WriteLine("Player One is winner!");
         }
-        else if (winner == playerTwo)
+        else if (whoWin == false)
         {
             Console.WriteLine("Player Two is winner!");
         }

@@ -20,7 +20,7 @@ public class Game
 		this.playerOne = new Player('a');
 		this.playerTwo = new Player('l');
 		this.board = new Board();
-		this.consoleUI = new UI(board, playerOne, playerTwo);
+		this.consoleUI = new UI();
 	}
 
 	// Creates a new deck using class DeckManager and divides equally between two players
@@ -91,11 +91,11 @@ public class Game
 
 		while(!IsGameOver())
 		{
-			consoleUI.LogCardCount();
+			consoleUI.LogCardCount(board, playerOne, playerTwo);
 			PlayNextCard();
 			var lastCard = board.GetBoardCardStack().Last();
 
-			bool isJack = lastCard.rank is Rank.Jack;
+			bool isJack = lastCard.rank == Rank.Jack;
 
 			char playerInput = consoleUI.GetInput();
 			
@@ -129,7 +129,7 @@ public class Game
 			else if(!isJack && IsNotEmpty(playerWhoSlaps))
 			{
 				playerWhoNotSlaps.AddCard(playerWhoSlaps.GetPersonalStack().Last());
-				playerWhoSlaps.RemoveCard(playerWhoSlaps.GetPersonalStack().Last());
+				playerWhoSlaps.RemoveCard(-1);
 			}
 			// Loose if wrong slaps and the player stack was empty
 			else
@@ -142,17 +142,15 @@ public class Game
 		// Defines the winner 
 		if(playerOne.GetPersonalStack().Any())
 		{
-			consoleUI.LogWinner(playerOne);
+			consoleUI.LogWinner(true);
 		}
 		else if(playerTwo.GetPersonalStack().Any())
 		{
-			consoleUI.LogWinner(playerTwo);
+			consoleUI.LogWinner(false);
 		}
 		else
 		{
 			consoleUI.LogWinner(null!);
 		}
 	}
-
-
 }

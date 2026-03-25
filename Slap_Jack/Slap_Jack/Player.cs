@@ -23,7 +23,7 @@ public class Player
 	public void AddCard(Card card) => personalStack.Add(card);
 
 	// Removes the card from the player`s stack
-	public void RemoveCard(Card card) => personalStack.Remove(card);
+	public void RemoveCard(int index) => personalStack.RemoveAt(index);
 
 	// Adds a range of cards to the playes`s stack
 	public void AddRangeOffCards(List<Card> cards) => personalStack.AddRange(cards);
@@ -35,6 +35,4 @@ public class Player
 		personalStack.RemoveAt(0);
 		return card;
 	}
-
-
 }

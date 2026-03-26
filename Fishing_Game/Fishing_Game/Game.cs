@@ -11,7 +11,7 @@ public class Game
 	private Inventory inventory;
 	private Pond pond;
 	private UI ConsoleUI;
-    private int SpotCounter = -1;
+    private int SpotsFished = 0;
     public Game()
 	{
 		this.player = new Player();
@@ -37,15 +37,13 @@ public class Game
 			{
 				IFishable loot = pond.fish(row, col);
 
-				// Set weight and value of the fish
-				loot.SetWeight();
-				loot.SetValue();
-
 				// Consume total score and weight
 				player.AddScore(loot.Value);
 				inventory.AddWeight(loot.Weight);
 				ConsoleUI.LogFish(loot, player, inventory);
-			}
+
+                SpotsFished++;
+            }
 			else
 			{
 				ConsoleUI.LogFishedSlot();
@@ -59,7 +57,6 @@ public class Game
 	// End game condition
 	public bool IsWeightOrSpotLimit()
 	{
-        SpotCounter++;
-        return inventory.GetMaxWeight() < inventory.TotalWeight || SpotCounter >= pond.GetPondSpotAmount();
+        return inventory.GetMaxWeight() < inventory.TotalWeight || SpotsFished >= pond.GetPondSpotAmount();
 	}
 }

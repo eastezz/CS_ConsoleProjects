@@ -30,14 +30,14 @@ public class UI
 			Console.Write("Select an X-Coordinate: ");
 			if (!int.TryParse(Console.ReadLine(), out row) || row > pond.GetPondScale() || row < 1)
 			{
-				Console.WriteLine("\nInvalid coordinates\n");
+				Console.WriteLine("\nInvalid coordinate\n");
 				continue;
 			}
 
 			Console.Write("Select an Y-Coordinate: ");
 			if (!int.TryParse(Console.ReadLine(), out col) || col > pond.GetPondScale() || col < 1)
 			{
-				Console.WriteLine("\nInvalid coordinates\n");
+				Console.WriteLine("\nInvalid coordinate\n");
 				continue;
 			}
 
@@ -58,13 +58,13 @@ public class UI
 		Console.WriteLine($"\nYou fished a {fish.GetName()}");
 		Console.WriteLine($"Weight: {fish.Weight}");
 		Console.WriteLine($"Value: {fish.Value}");
-		Console.WriteLine($"Your current score is: {player.score}");
+		Console.WriteLine($"Your current score is: {player.Score}");
 		Console.WriteLine($"The total weight is: {inventory.TotalWeight}\n");
 	}
 
 	// Logs the end of the game
 	public void LogEnd(Player player)
 	{
-		Console.WriteLine($"Game over! Your score is {player.score}");
+		Console.WriteLine($"Game over! Your score is {player.Score}");
 	}
 }

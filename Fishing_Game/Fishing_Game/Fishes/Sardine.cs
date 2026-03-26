@@ -5,13 +5,13 @@ public class Sardine : IFishable
     private const int FishValue = 5;
     public int Value { get; set; }
     public int Weight { get; set; }
-    public String GetName() => "Sardine";
 
-    public void SetValue()
+    public Sardine()
     {
-        SetWeight();
+        Weight = Random.Shared.Next(1, 2);
         Value = Weight * FishValue;
     }
+    public String GetName() => "Sardine";
 
-    public void SetWeight() => Weight = Random.Shared.Next(1, 2);
+    
 }

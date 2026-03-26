@@ -22,9 +22,13 @@ public class Pond
 		List<IFishable> Fish = new List<IFishable> { new Boot(), new Can(), new Mackerel(), new Shark(), new Salmon(), new Sardine(), new Trout(), new Tuna() };
 		for(int i = 0; i < PondScale; i++)
 		{
-            IFishable RandomFish = Fish[Random.Shared.Next(0, 8)];
-            Fishables.Add(new List<IFishable> { RandomFish, RandomFish, RandomFish, RandomFish });
-
+			var row = new List<IFishable>();
+			for (int j = 0; j < PondScale; j++)
+			{
+				var RandomFish = Fish[Random.Shared.Next(Fish.Count)];
+				row.Add(RandomFish);
+			}
+			Fishables.Add(row);
             pond.Add(new List<char> {'▓', '▓', '▓', '▓'});
 		}
 	}

@@ -13,12 +13,13 @@ public class Pond
 		this.pond = new List<List<char>>();
 	}
 
+	// Creates two lists 4x4, one for the visual interface of the spot, another for fish content at the same spot
 	public void CreatePond()
 	{
 		Fishables.Clear();
 		pond.Clear();
 
-		List<IFishable> Fish = new List<IFishable> { new Boot(), new Can(), new Mackerel(), new Salmon(), new Sardine(), new Trout(), new Tuna() };
+		List<IFishable> Fish = new List<IFishable> { new Boot(), new Can(), new Mackerel(), new Shark(), new Salmon(), new Sardine(), new Trout(), new Tuna() };
 		for(int i = 0; i < PondScale; i++)
 		{
             IFishable RandomFish = Fish[Random.Shared.Next(0, 8)];
@@ -28,18 +29,25 @@ public class Pond
 		}
 	}
 
+	// Returns visual interface
 	public IReadOnlyList<List<char>> GetPond() => this.pond;
 
+	// Marks the spot as already fished and returns the fished fish
 	public IFishable fish(int row, int col)
 	{
 		pond[row - 1][col - 1] = '░';
 
 		return Fishables[row - 1][col - 1];
 	}
+
+	// Checks if the spot is already marked
     public bool IsFished(int row, int col) => pond[row - 1][col - 1].Equals('░');
+
+	// Returns total amount of spots
 
 	public int GetPondSpotAmount() => PondSpots;
 
+	// Retuns the scale of the pond
 	public int GetPondScale() => PondScale;
 
 	

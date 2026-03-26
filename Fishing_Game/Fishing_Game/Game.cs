@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
 
+// Class with the main game logic
 public class Game
 {
 	private Player player;
@@ -19,6 +20,7 @@ public class Game
 		this.ConsoleUI = new UI();
 	}
 
+	// Starting the game
 	public void GameStart()
 	{ 	
 		ConsoleUI.LogIntro();
@@ -34,13 +36,19 @@ public class Game
 			if (!pond.IsFished(row, col))
 			{
 				IFishable loot = pond.fish(row, col);
-				player.AddScore(loot.GetValue());
-				inventory.AddWeight(loot.GetWeight());
+
+				// Set weight and value of the fish
+				loot.SetWeight();
+				loot.SetValue();
+
+				// Consume total score and weight
+				player.AddScore(loot.Value);
+				inventory.AddWeight(loot.Weight);
 				ConsoleUI.LogFish(loot, player, inventory);
 			}
 			else
 			{
-				Console.WriteLine("This slot was already fished");
+				ConsoleUI.LogFishedSlot();
 				continue;
 			}
 		}
@@ -48,10 +56,10 @@ public class Game
 		ConsoleUI.LogEnd(player);
 	}
 
+	// End game condition
 	public bool IsWeightOrSpotLimit()
 	{
         SpotCounter++;
-        Console.WriteLine(SpotCounter);
         return inventory.GetMaxWeight() < inventory.TotalWeight || SpotCounter >= pond.GetPondSpotAmount();
 	}
 }

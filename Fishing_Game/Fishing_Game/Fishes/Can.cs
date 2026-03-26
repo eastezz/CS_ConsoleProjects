@@ -3,18 +3,15 @@
 public class Can : IFishable
 {
     private const int FishValue = -13;
-    public String GetName()
+    public int Value { get; set; }
+    public int Weight { get; set; }
+    public String GetName() => "Can";
+
+    public void SetValue()
     {
-        return "Can";
+        SetWeight();
+        Value = Weight * FishValue;
     }
 
-    public int GetValue()
-    {
-        return GetWeight() * FishValue;
-    }
-
-    public int GetWeight()
-    {
-        return Random.Shared.Next(1, 5);
-    }
+    public void SetWeight() => Weight = Random.Shared.Next(1, 5);
 }

@@ -3,18 +3,15 @@
 public class Boot : IFishable
 {
     private const int FishValue = -32;
-    public String GetName()
+    public int Value { get; set; }
+    public int Weight { get; set; }
+    public String GetName() => "Boot";
+
+    public void SetValue()
     {
-        return "Boot";
+        SetWeight();
+        Value = Weight * FishValue;
     }
 
-    public int GetValue()
-    {
-        return GetWeight() * FishValue;
-    }
-
-    public int GetWeight()
-    {
-        return Random.Shared.Next(1, 2);
-    }
+    public void SetWeight() => Weight = Random.Shared.Next(1, 2);
 }

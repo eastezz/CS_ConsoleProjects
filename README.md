@@ -59,6 +59,27 @@ Players must quickly react and "slap" when a Jack appears.
 [SlapJack](Slap_Jack)
 
 ---
+### 🎣 Fishing Game (Console Simulation)
+
+A relaxing yet strategic console-based fishing game where players catch random items from a pond while managing weight and maximizing score.
+
+**Features:**
+
+
+* 4x4 interactive pond grid
+* Randomized fish and loot system
+* Different fish types with unique weight and value
+* Inventory weight limit mechanic
+* Score tracking system
+* Input validation for coordinates
+* Simple console-based interface
+* Extensible design using interfaces (IFishable)
+
+
+🔗 Project link: 
+[FishingGame](Fishing_Game)
+
+---
 
 ## 🛠️ Technologies Used
 

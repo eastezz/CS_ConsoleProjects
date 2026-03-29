@@ -2,8 +2,7 @@
 
 public class DuplicateRoomException : Exception
 {
-	public DuplicateRoomException(string reason)
+	public DuplicateRoomException(string message) : base(message)
 	{
-		
 	}
 }

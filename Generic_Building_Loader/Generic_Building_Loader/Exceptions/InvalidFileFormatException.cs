@@ -2,8 +2,7 @@
 
 public class InvalidFileFormatException : Exception
 {
-	public InvalidFileFormatException(string reason)
+	public InvalidFileFormatException(string message) : base(message)
 	{
-
 	}
 }

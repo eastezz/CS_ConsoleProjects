@@ -1,30 +1,32 @@
 ﻿using System;
 
-public class Building <T : IOwner>
+public class Building<T> where T : IOwner
 {
 	public string BuildingName { get; set; }
 	public T Owner { get; set; }
-	public string[,] Rooms { get; set; }
-	public building(string BuildingName, T Owner, int row, int col)
+	public Room[,] Rooms { get; set; }
+
+	public Building(string BuildingName, T Owner, int row, int col)
 	{
 		this.BuildingName = BuildingName;
 		this.Owner = Owner;
-		this.Rooms = new string[row][col]
+		this.Rooms = new Room[row, col];
 	}
 
 	public void AddRoom(int row, int col, Room NewRoom)
 	{
-		try
+		if (row < 0 || row >= Rooms.GetLength(0) || col < 0 || col >= Rooms.GetLength(1))
 		{
-			if (Rooms[row][col].Equals(null))
-			{
-				Rooms[row, col] = NewRoom;
-			}
-			else throw DuplicateRoomException("The cell is already occupied");
+			throw new InvalidFileFormatException($"Wrong Coordinates! {(row,col)}");
 		}
-		catch(IndexOutOfRangeException)
+		else if (Rooms[row, col] != null)
 		{
-			throw InvalidFileFormatException("Invalid file format");
+			throw new DuplicateRoomException($"The cell is aready occupied! {(row, col)}");
+		}
+		else
+		{
+			Rooms[row, col] = NewRoom;
 		}
 	}
+
 }

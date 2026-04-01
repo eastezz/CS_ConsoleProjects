@@ -59,12 +59,12 @@ Players must quickly react and "slap" when a Jack appears.
 [SlapJack](Slap_Jack)
 
 ---
+
 ### 🎣 Fishing Game (Console Simulation)
 
 A relaxing yet strategic console-based fishing game where players catch random items from a pond while managing weight and maximizing score.
 
 **Features:**
-
 
 * 4x4 interactive pond grid
 * Randomized fish and loot system
@@ -75,9 +75,28 @@ A relaxing yet strategic console-based fishing game where players catch random i
 * Simple console-based interface
 * Extensible design using interfaces (IFishable)
 
-
 🔗 Project link: 
 [FishingGame](Fishing_Game)
+
+---
+
+### 🏢 Generic Building Loader (Console File Parser)
+
+A console-based application that reads structured text files to dynamically construct buildings with different types of owners using generics and object-oriented design.
+
+**Features:**
+
+* Generic Building<T> implementation with flexible owner types
+* Support for multiple owner types (Person, Company, Organization)
+* 2D grid-based room structure
+* File-driven building creation
+* Custom exception handling (DuplicateRoomException, InvalidFileFormatException)
+* Dynamic object creation based on file input
+* Strong use of interfaces (IOwner) and generics
+* Input validation for file format and coordinates
+
+🔗 Project link:
+[GenericBuildingLoader](Generic_Building_Loader)
 
 ---
 

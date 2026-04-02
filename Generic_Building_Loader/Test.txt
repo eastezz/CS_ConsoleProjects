@@ -1,0 +1,5 @@
+House,Bob Swift,Person,2,2
+0,0,Bathroom
+0,1,Kitchen
+1,0,Bedroom
+1,1,Study Room

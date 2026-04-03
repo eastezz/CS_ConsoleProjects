@@ -20,6 +20,7 @@ public class BuildingLoader
 			line = sr.ReadLine();
 			string[] parts = line.Split(",");
 
+			// Working with the first line
 			CheckFirstLineLength(parts.Length);
 
 			string BuildingName = parts[0];
@@ -33,8 +34,10 @@ public class BuildingLoader
 			int row = CheckCoordinatesType(parts[3]);
 			int col = CheckCoordinatesType(parts[4]);
 
+			// Creating the new building
 			this.NewBuilding = new Building<IOwner>(BuildingName, owner, row, col);
 
+			// Working with other lines
 			while ((line = sr.ReadLine()) != null)
 			{
 				parts = line.Split(",");
@@ -51,6 +54,7 @@ public class BuildingLoader
 		}
 	}
 
+	// Checks whether owner type exists or not 
 	public IOwner CheckOwnerType(string OwnerType, string OwnerName)
 	{
         switch (OwnerType)
@@ -70,6 +74,7 @@ public class BuildingLoader
         }
     }
 
+	// Checks coordinates correctness
 	public int CheckCoordinatesType(string input)
 	{
 		if(!int.TryParse(input, out int output))
@@ -79,11 +84,14 @@ public class BuildingLoader
 		return output;
 	}
 
+
+	// Checks the length of the first line
 	public void CheckFirstLineLength(int length)
 	{
 		if (length != 5) throw new InvalidFileFormatException("The file has wrong format!");
 	}
 
+	// Checks the length of the second line
 	public void CheckOtherLinesLength(int length)
 	{
         if (length != 3) throw new InvalidFileFormatException("The file has wrong format!");

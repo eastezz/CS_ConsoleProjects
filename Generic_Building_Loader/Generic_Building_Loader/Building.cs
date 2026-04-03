@@ -13,6 +13,7 @@ public class Building<T> where T : IOwner
 		this.Rooms = new Room[row, col];
 	}
 
+    // Adds a new room
     public void AddRoom(int row, int col, Room NewRoom)
     {
         if (row < 0 || row >= Rooms.GetLength(0) || col < 0 || col >= Rooms.GetLength(1))
@@ -28,6 +29,8 @@ public class Building<T> where T : IOwner
         Rooms[row, col] = NewRoom;
     }
 
+    // Returns all data that was saved
+    //... Just for testing
     public void GetBuildingInfo()
     {
         Console.WriteLine($"{BuildingName}, {Owner.Name}, {Owner}, {Rooms.GetLength(0)}, {Rooms.GetLength(1)}");

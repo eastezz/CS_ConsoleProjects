@@ -100,6 +100,26 @@ A console-based application that reads structured text files to dynamically cons
 
 ---
 
+### 🎵 Music Player (Console Lyrics Engine)
+
+A modular console-based music player that reads song lyrics from a file and dynamically applies transformations such as capitalization, repetition, and playback delay using a flexible decorator-based design.
+
+**Features:**
+
+* File-based lyrics loading
+* Line-by-line playback using iterator-style logic
+* Uppercase transformation (UppercaseWrapper)
+* Infinite repetition mode (RepeatWrapper)
+* Adjustable playback delay (DelayWrapper)
+* Dynamic player composition via factory pattern
+* Clean extensible architecture using interfaces (IMusicPlayer)
+* Separation of core logic and behavior extensions (Decorator Pattern)
+
+🔗 Project link:
+[MusicPlayer](MusicPlayer)
+
+---
+
 ## 🛠️ Technologies Used
 
 * C#

@@ -37,6 +37,7 @@ namespace MusicPlayerApp
 
         public string Current => lyrics[index];
 
+        // Ennumerator uses 3 functions / MoveNext - moves to the next line if true / Current - return the line / Reset - set an index to start(go back to start)
         object System.Collections.IEnumerator.Current => Current;
 
         public void Dispose() { }

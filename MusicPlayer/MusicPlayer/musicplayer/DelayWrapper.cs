@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 
+// Wrappers/basic decorator pattern concept
 namespace MusicPlayerApp
 {
     public class DelayWrapper : IMusicPlayer

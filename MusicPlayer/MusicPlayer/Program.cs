@@ -1,6 +1,7 @@
 ﻿using System;
 using MusicPlayerApp;
 
+// Using namespces to avoid name conflicts/organize code/group related classes
 namespace MusicPlayerApp
 {
     class Program

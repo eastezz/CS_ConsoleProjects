@@ -120,6 +120,29 @@ A modular console-based music player that reads song lyrics from a file and dyna
 
 ---
 
+### 🌳 File System Tree (Hierarchical File Manager)
+
+A generic tree-based file system implementation that models folders and files in a hierarchical structure. It supports dynamic path creation, traversal, and management operations while maintaining a clean and extensible design using generics.
+
+**Features:**
+
+* Hierarchical tree structure for files and folders
+* Generic implementation (`FileSystemTree<T>`) for flexible metadata handling
+* Automatic creation of intermediate folders when adding paths
+* Path-based search functionality (`Find`)
+* Directory listing of immediate children (`List`)
+* Recursive deletion of files and folders (`Remove`)
+* Structured tree visualization with indentation (`PrintTree`)
+* Full path reconstruction for any file (`GetFullPath`)
+* Recursive file counting (excluding folders) (`CountFiles`)
+* Safe handling of invalid paths (e.g., file in the middle of a path)
+* Clean separation of concerns using `TreeNode` and `FileMetadata`
+
+🔗 Project link:
+[FileSystemTree](FileSystemTree)
+
+---
+
 ## 🛠️ Technologies Used
 
 * C#

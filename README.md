@@ -1,13 +1,12 @@
-# 🧩 C# Console Projects Collection
+## C# Console Projects Collection
 
 Here you can find my small console projects developed in **C#**.
 These programs were created for practice, learning, and exploring core programming concepts.
 
----
 
-## 📚 Projects
+## Projects
 
-### 🎮 Hangman Game
+## Hangman Game
 
 A simple word-guessing game played in the console.
 
@@ -18,12 +17,12 @@ A simple word-guessing game played in the console.
 * Case-insensitive input
 * Win/Lose conditions
 
-🔗 Project link:
+Project link:
 [HangmanGame](Hangman_Game)
 
 ---
 
-### ❌⭕ Tic-Tac-Toe (Console Game)
+## Tic-Tac-Toe (Console Game)
 
 A classic two-player Tic-Tac-Toe game played in the console.
 
@@ -36,12 +35,12 @@ A classic two-player Tic-Tac-Toe game played in the console.
 * Draw detection
 * Clean board display after each move
 
-🔗 Project link:
+Project link:
 [TicTacToe](Tic_Tac_Toe_Game)
 
 ---
 
-### 🃏 Slap Jack (Console Card Game)
+## Slap Jack (Console Card Game)
 
 A fast-paced reaction-based card game played in the console.
 Players must quickly react and "slap" when a Jack appears.
@@ -55,12 +54,12 @@ Players must quickly react and "slap" when a Jack appears.
 * Score tracking
 * Simple console interface
 
-🔗 Project link:
+Project link:
 [SlapJack](Slap_Jack)
 
 ---
 
-### 🎣 Fishing Game (Console Simulation)
+## Fishing Game (Console Simulation)
 
 A relaxing yet strategic console-based fishing game where players catch random items from a pond while managing weight and maximizing score.
 
@@ -75,12 +74,12 @@ A relaxing yet strategic console-based fishing game where players catch random i
 * Simple console-based interface
 * Extensible design using interfaces (IFishable)
 
-🔗 Project link: 
+Project link: 
 [FishingGame](Fishing_Game)
 
 ---
 
-### 🏢 Generic Building Loader (Console File Parser)
+## Generic Building Loader (Console File Parser)
 
 A console-based application that reads structured text files to dynamically construct buildings with different types of owners using generics and object-oriented design.
 
@@ -95,12 +94,12 @@ A console-based application that reads structured text files to dynamically cons
 * Strong use of interfaces (IOwner) and generics
 * Input validation for file format and coordinates
 
-🔗 Project link:
+Project link:
 [GenericBuildingLoader](Generic_Building_Loader)
 
 ---
 
-### 🎵 Music Player (Console Lyrics Engine)
+## Music Player (Console Lyrics Engine)
 
 A modular console-based music player that reads song lyrics from a file and dynamically applies transformations such as capitalization, repetition, and playback delay using a flexible decorator-based design.
 
@@ -115,12 +114,12 @@ A modular console-based music player that reads song lyrics from a file and dyna
 * Clean extensible architecture using interfaces (IMusicPlayer)
 * Separation of core logic and behavior extensions (Decorator Pattern)
 
-🔗 Project link:
+Project link:
 [MusicPlayer](MusicPlayer)
 
 ---
 
-### 🌳 File System Tree (Hierarchical File Manager)
+## File System Tree (Hierarchical File Manager)
 
 A generic tree-based file system implementation that models folders and files in a hierarchical structure. It supports dynamic path creation, traversal, and management operations while maintaining a clean and extensible design using generics.
 
@@ -138,12 +137,12 @@ A generic tree-based file system implementation that models folders and files in
 * Safe handling of invalid paths (e.g., file in the middle of a path)
 * Clean separation of concerns using `TreeNode` and `FileMetadata`
 
-🔗 Project link:
+Project link:
 [FileSystemTree](File_System_Tree)
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 * C#
 * .NET Console Applications
@@ -152,7 +151,7 @@ A generic tree-based file system implementation that models folders and files in
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 1. Clone the repository
 2. Open the project in Visual Studio or VS Code
